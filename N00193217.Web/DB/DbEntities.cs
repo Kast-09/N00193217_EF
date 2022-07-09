@@ -6,10 +6,10 @@ namespace N00193217.Web.DB
 {
     public class DbEntities : DbContext
     {
-        public DbSet<Categoria> categorias { get; set; }
-        public DbSet<Cuenta> cuentas { get; set; }
-        public DbSet<Tipo> tipos { get; set; }
-        public DbSet<Transaccion> transaccions { get; set; }
+        public virtual DbSet<Categoria> categorias { get; set; }
+        public virtual DbSet<Cuenta> cuentas { get; set; }
+        public virtual DbSet<Tipo> tipos { get; set; }
+        public virtual DbSet<Transaccion> transaccions { get; set; }
         public DbEntities() { }
         public DbEntities(DbContextOptions<DbEntities> options) : base(options) { }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
