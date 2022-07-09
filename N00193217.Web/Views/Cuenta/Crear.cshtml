@@ -1,0 +1,44 @@
+﻿<body>
+    <h1 id="crearCuenta">Crear Cuenta</h1>
+    <form action="" method="post">
+        <div class="mb-3">
+            <label for="Nombre">Nombre: </label>
+            <input type="text" class="form-control" Name="Nombre" id="Nombre" value="@Model.Nombre">
+            @Html.ValidationMessage("Nombre")
+        </div>
+        <div class="mb-3">
+            <label>Tipo: </label>
+            <select class="form-select" name="Tipo" id="Tipo">
+                <option value="">-- Seleccione Tipo --</option>
+                @foreach(var item in (List<Tipo>)ViewBag.Tipos)
+                {
+                    if (item.Descripcion == Model.Tipo)
+                    {
+                        <option value="@item.Descripcion" selected>@item.Descripcion</option>
+                    }
+                    else
+                    {
+                        <option value="@item.Descripcion">@item.Descripcion</option>
+                    }                     
+                }
+            </select>
+            @Html.ValidationMessage("Tipo")
+        </div>
+        <div class="mb-3">
+            <label for="SaldoInicial">Saldo Inicial: </label>
+            <input type="number" class="form-control" Name="SaldoInicial" id="SaldoInicial" value="@Model.SaldoInicial" min="0.00" step="0.01">
+            @Html.ValidationMessage("SaldoInicial")
+        </div>
+        <div class="mb-3">
+            <label>Moneda: </label>
+            <select class="form-select" name="Moneda" id="Moneda">
+                <option value="">-- Seleccione Moneda --</option>
+                <option value="Soles">Soles</option>
+                <option value="Dolares">Dólares</option>
+            </select>
+            @Html.ValidationMessage("Tipo")
+        </div>
+        <button class="btn btn-primary">Registrar</button>
+        <a href="/Cuenta/Index" class="btn btn-link">Cancelar</a>
+    </form>
+</body>

@@ -1,0 +1,21 @@
+﻿<body>
+    <h1 id="Gasto">Nuevo Gasto</h1>
+    @Html.ValidationMessage("Mensaje")
+    <h3>Saldo en cuenta: S/.@ViewBag.Saldo</h3>
+    <div class="container">
+        <form action="/Cuenta/Gasto?IdCuenta=@ViewBag.CuentaId" method="post">            
+            <div class="mb-3">
+                <label for="Descripcion">Descripción: </label>
+                <input type="text" class="form-control" Name="Descripcion" id="Descripcion" value="@Model.Descripcion">
+                @Html.ValidationMessage("Descripcion")
+            </div>
+            <div class="mb-3">
+                <label for="Monto">Monto: </label>
+                <input type="number" class="form-control" Name="Monto" id="Monto" value="@Model.Monto" min="0.00" step="0.01">
+                @Html.ValidationMessage("Monto")
+            </div>
+            <button class="btn btn-primary">Registrar</button>
+            <a href="/Cuenta/Index" class="btn btn-link">Cancelar</a>
+        </form>
+    </div>
+</body>

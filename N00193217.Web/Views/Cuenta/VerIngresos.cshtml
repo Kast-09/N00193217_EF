@@ -1,0 +1,24 @@
+﻿<body>
+    <h1 id="Ingresos">Ingresos</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Fecha</th>
+                <th>Descripcion</th>
+                <th>Monto</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var gasto in (List<Transaccion>)ViewBag.Ingresos)
+            {
+                <tr>
+                    <td>@gasto.Id</td>
+                    <td>@gasto.Fecha</td>
+                    <td>@gasto.Descripcion</td>
+                    <td>@gasto.Monto</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>

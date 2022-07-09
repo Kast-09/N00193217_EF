@@ -1,0 +1,39 @@
+﻿<body>
+    <h1 id="listarCuentas">Lista de Cuentas</h1>
+    <h2>Tipo de cambio Dolares a soles S/. 3.90</h2>
+    <div class="text-center my-3">        
+        <a href="/Cuenta/Crear" class="btn btn-primary btn-dark">Crear Cuenta</a>
+    </div>
+    <h3>Saldo en soles: S/. @ViewBag.MontoSoles</h3>
+    <h3>Saldo en Dolares: $. @ViewBag.MontoDolares</h3>
+    <h3>Conversion a Soles saldo en dolares: S/. @ViewBag.Conversion</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Categoría</th>
+                <th>Tipo</th>
+                <th>Saldo</th>
+                <th>Moneda</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var cuenta in (List<Cuenta>)ViewBag.ListaCuentas)
+            {
+                <tr>
+                    <td>@cuenta.Id</td>
+                    <td>@cuenta.Nombre</td>
+                    <td>@cuenta.Categoria</td>
+                    <td>@cuenta.Tipo</td>
+                    <td>@cuenta.SaldoInicial</td>
+                    <td>@cuenta.Moneda</td>
+                    <td>
+                        <a href="/Cuenta/Gasto?IdCuenta=@cuenta.Id" class="btn btn-primary btn-dark">Gasto</a>
+                        <a href="/Cuenta/Ingreso?IdCuenta=@cuenta.Id" class="btn btn-primary btn-dark">Ingreso</a>                       
+                        <a href="/Cuenta/Movimientos?IdCuenta=@cuenta.Id" class="btn btn-primary btn-dark">Movimientos</a></td>
+                </tr>
+            }            
+        </tbody>
+    </table>
+</body>
